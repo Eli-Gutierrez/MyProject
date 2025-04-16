@@ -1,11 +1,12 @@
 import { SafeAreaView, TextInput, StyleSheet, useColorScheme, View } from "react-native";
 import CustomText from "@/components/CustomText";
 import CustomButton from "@/components/CusttomButton";
+import TitleText from "@/components/TitleText";
+import LinkText from "@/components/LinkTitle";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert } from "react-native";
-import { TouchableOpacity, Text } from "react-native";
-
+import { Alert } from "react-native"; 
+import FooterText from "@/components/FooterText";
 async function myAlert(message: string) {
   Alert.alert(message);
 }
@@ -19,7 +20,7 @@ export default function App() {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: isDark ? '#1c1c1e' : '#f0f0f0' }]}>
       <View style={[styles.form, { backgroundColor: isDark ? '#2c2c2e' : '#fff', borderColor: isDark ? '#444' : '#ccc' }]}>
-        <CustomText>Inicio de sesión</CustomText>
+        <TitleText>Inicio de sesión</TitleText>
         <CustomText>Nombre de usuario:</CustomText>
         <TextInput
           placeholder="Nombre de usuario"
@@ -28,7 +29,6 @@ export default function App() {
           value={nombre}
           onChangeText={setNombre}
         />
-
         <CustomText>Contraseña:</CustomText>   
         <TextInput
           placeholder="Contraseña"
@@ -38,18 +38,14 @@ export default function App() {
           onChangeText={setContrasena}
           secureTextEntry
         />
+       <LinkText onPress={() => console.log('Presionado')}>
+  ¿No tiene una cuenta?
+</LinkText>
 
-        {/* Links centrados */}
-        <View style={styles.options}>
-          <TouchableOpacity>
-            <Text style={styles.link}>¿No tiene una cuenta?</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.link}>¿Olvidó su contraseña?</Text>
-          </TouchableOpacity>
-        </View>
+<LinkText onPress={() => console.log('Presionado')}>
+  ¿Olvido su contraseña? 
+</LinkText>
 
-        {/* Botón centrado */}
         <View style={{ alignItems: 'center' }}>
           <CustomButton onPress={() => {
             if (!nombre) return myAlert("Escribe tu nombre");
@@ -58,12 +54,11 @@ export default function App() {
             Confirmar
           </CustomButton>
         </View>
-
       </View>
-    </SafeAreaView>
+      <FooterText></FooterText>
+    </SafeAreaView> 
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -81,15 +76,5 @@ const styles = StyleSheet.create({
     borderColor: '#888',
     borderRadius: 8,
     padding: 10,
-  },
-  options: {
-    marginBottom: 16,
-    alignItems: 'center',
-  },
-  link: {
-    color: "#3366FF",
-    fontSize: 13,
-    marginBottom: 4,
-    textAlign: 'center',
   },
 });
