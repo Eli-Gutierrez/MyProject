@@ -18,7 +18,7 @@ export default function TitleText(props: TextProps) {
 const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
-    fontSize: 22,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 16,
   },
