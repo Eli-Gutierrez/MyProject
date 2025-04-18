@@ -5,6 +5,7 @@ import { useRouter } from "expo-router";
 import FooterText from "@/components/FooterText";
 import Header from "@/components/Header";
 
+
 export default function App() {
   const router = useRouter();
   const colorScheme = useColorScheme();

@@ -1,26 +1,30 @@
-import { SafeAreaView, TextInput, StyleSheet, useColorScheme, View } from "react-native";
+import {
+  SafeAreaView,TextInput,StyleSheet,useColorScheme,View,Alert,} from "react-native";
 import CustomText from "@/components/CustomText";
 import CustomButton from "@/components/CusttomButton";
 import TitleText from "@/components/TitleText";
 import LinkText from "@/components/LinkTitle";
+import FooterText from "@/components/FooterText";
+import WelcomeModal from "@/components/WelcomeModal"; // ✅ Importar el modal
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert } from "react-native"; 
-import FooterText from "@/components/FooterText";
+
 async function myAlert(message: string) {
   Alert.alert(message);
 }
+
 export default function App() {
   const [nombre, setNombre] = useState('');
   const [contrasena, setContrasena] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
   const router = useRouter();
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
-
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: isDark ? '#1c1c1e' : '#f0f0f0' }]}>
       <View style={[styles.form, { backgroundColor: isDark ? '#2c2c2e' : '#fff', borderColor: isDark ? '#444' : '#ccc' }]}>
         <TitleText>Inicio de sesión</TitleText>
+
         <CustomText>Nombre de usuario:</CustomText>
         <TextInput
           placeholder="Nombre de usuario"
@@ -29,7 +33,8 @@ export default function App() {
           value={nombre}
           onChangeText={setNombre}
         />
-        <CustomText>Contraseña:</CustomText>   
+
+        <CustomText>Contraseña:</CustomText>
         <TextInput
           placeholder="Contraseña"
           placeholderTextColor={isDark ? '#aaa' : '#666'}
@@ -38,25 +43,36 @@ export default function App() {
           onChangeText={setContrasena}
           secureTextEntry
         />
-       <LinkText onPress={() => console.log('Presionado')}>
-  ¿No tiene una cuenta?
-</LinkText>
 
-<LinkText onPress={() => console.log('Presionado')}>
-  ¿Olvido su contraseña? 
-</LinkText>
-
+        <LinkText onPress={() => console.log('Presionado')}>
+          ¿No tiene una cuenta?
+        </LinkText>
+        <LinkText onPress={() => console.log('Presionado')}>
+          ¿Olvidó su contraseña?
+        </LinkText>
         <View style={{ alignItems: 'center' }}>
-          <CustomButton onPress={() => {
-            if (!nombre) return myAlert("Escribe tu nombre");
-            myAlert(`Hola ${nombre}`);
-          }}>
+          <CustomButton
+            onPress={() => {
+              if (!nombre) return myAlert("Escribe tu nombre");
+              setModalVisible(true);
+            }}
+          >
             Confirmar
           </CustomButton>
         </View>
       </View>
-      <FooterText></FooterText>
-    </SafeAreaView> 
+
+      <WelcomeModal
+        nombre={nombre}
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        onContinue={() => {
+          setModalVisible(false);
+          router.push('/generarqr');
+        }}
+      />
+      <FooterText />
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({

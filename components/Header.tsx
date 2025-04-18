@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, useColorScheme } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-
 export default function Header() {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
@@ -16,14 +15,13 @@ export default function Header() {
         size={24}
         color={isDark ? '#fff' : '#000'}
       />
-      
+  
       <Text style={[
         styles.headerText,
         { color: isDark ? '#fff' : '#000' }
       ]}>
-        Bienvenido a TuApp
+    
       </Text>
-
       <FontAwesome
         name="user"
         size={24}
@@ -32,7 +30,6 @@ export default function Header() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   header: {
     position: 'absolute',
