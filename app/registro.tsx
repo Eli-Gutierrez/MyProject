@@ -83,7 +83,7 @@ export default function App() {
           onChangeText={setApellidos}
         />
         
-        <LinkText onPress={() => console.log('Presionado')}>
+        <LinkText onPress={() => console.log('/app/index.tsx')}>
           ¿Ya tienes una cuenta?
         </LinkText>
         <View style={{ alignItems: 'center' }}>
