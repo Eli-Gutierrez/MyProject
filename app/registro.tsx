@@ -95,22 +95,11 @@ export default function App() {
           >
             Confirmar
           </CustomButton>
-        </View>
+        </View> 
       </View>
-      <WelcomeModal
-        nombre={nombre}
-        visible={modalVisible}
-        onClose={() => setModalVisible(false)}
-        onContinue={() => {
-          setModalVisible(false);
-          router.push('/generarqr');
-        }}
-      />
-      <FooterText />
     </SafeAreaView>
-    
-  );
-}
+
+    );}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
