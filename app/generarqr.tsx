@@ -36,7 +36,7 @@ export default function App(): JSX.Element {
         style={[
           styles.form,
           {
-            backgroundColor: isDark ? "#2c2c2e" : "#fff",
+            backgroundColor: isDark ? "#1A1B1E" : "#fff",
             borderColor: isDark ? "#444" : "#ccc",
           },
         ]}

@@ -31,11 +31,13 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 8,
     padding: 8,
+    
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
   },
   buttonText: {
     fontWeight: 'bold',
+    fontSize:18,
   },
 });

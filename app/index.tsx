@@ -22,7 +22,7 @@ export default function App() {
   const isDark = colorScheme === 'dark';
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: isDark ? '#1c1c1e' : '#f0f0f0' }]}>
-      <View style={[styles.form, { backgroundColor: isDark ? '#2c2c2e' : '#fff', borderColor: isDark ? '#444' : '#ccc' }]}>
+      <View style={[styles.form, { backgroundColor: isDark ? '#1A1B1E' : '#fff', borderColor: isDark ? '#444' : '#ccc' }]}>
         <TitleText>Inicio de sesión</TitleText>
 
         <CustomText>Nombre de usuario:</CustomText>

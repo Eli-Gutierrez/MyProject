@@ -5,7 +5,7 @@ import CustomButton from "@/components/CusttomButton";
 import TitleText from "@/components/TitleText";
 import LinkText from "@/components/LinkTitle";
 import FooterText from "@/components/FooterText";
-import WelcomeModal from "@/components/WelcomeModal"; // ✅ Importar el modal
+import WelcomeModal from "@/components/WelcomeModal";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ export default function App() {
   const isDark = colorScheme === 'dark';
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: isDark ? '#1c1c1e' : '#f0f0f0' }]}>
-      <View style={[styles.form, { backgroundColor: isDark ? '#2c2c2e' : '#fff', borderColor: isDark ? '#444' : '#ccc' }]}>
+      <View style={[styles.form, { backgroundColor: isDark ? '#1A1B1E' : '#fff', borderColor: isDark ? '#444' : '#ccc' }]}>
         <TitleText> REGISTRAR USUARIO</TitleText>
 
         <CustomText>Nombre de usuario:</CustomText>
