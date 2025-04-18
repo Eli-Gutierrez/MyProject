@@ -97,7 +97,6 @@ export default function App() {
           </CustomButton>
         </View>
       </View>
-
       <WelcomeModal
         nombre={nombre}
         visible={modalVisible}
@@ -109,6 +108,7 @@ export default function App() {
       />
       <FooterText />
     </SafeAreaView>
+    
   );
 }
 const styles = StyleSheet.create({
