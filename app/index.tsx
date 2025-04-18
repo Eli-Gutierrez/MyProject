@@ -47,7 +47,8 @@ export default function App() {
 <LinkText onPress={() => router.push('/registro')}>
   ¿No tiene una cuenta?
 </LinkText>
-        <LinkText onPress={() => console.log('Presionado')}>
+
+ <LinkText onPress={() =>router.push('/recuperarcontra')}>
           ¿Olvidó su contraseña?
         </LinkText>
         <View style={{ alignItems: 'center' }}>
