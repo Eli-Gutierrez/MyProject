@@ -5,7 +5,7 @@ import CustomButton from "@/components/CusttomButton";
 import TitleText from "@/components/TitleText";
 import LinkText from "@/components/LinkTitle";
 import FooterText from "@/components/FooterText";
-import WelcomeModal from "@/components/WelcomeModal"; // ✅ Importar el modal
+import WelcomeModal from "@/components/WelcomeModal"; 
 import { useRouter } from "expo-router";
 import { useState } from "react";
 
@@ -44,9 +44,9 @@ export default function App() {
           secureTextEntry
         />
 
-        <LinkText onPress={() => console.log('Presionado')}>
-          ¿No tiene una cuenta?
-        </LinkText>
+<LinkText onPress={() => router.push('/registro')}>
+  ¿No tiene una cuenta?
+</LinkText>
         <LinkText onPress={() => console.log('Presionado')}>
           ¿Olvidó su contraseña?
         </LinkText>
